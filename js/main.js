@@ -5,6 +5,16 @@
 		this.products= myGems;
 	})
 
+	app.controller('PanelController',function(){
+		this.tab=1;
+		this.setTab= function(val){
+			this.tab= val;
+		}
+		this.isSelected= function(val){
+			return val == this.tab;
+		}
+	})
+
 	var myGems= [
 
 	{
@@ -14,6 +24,14 @@
 		description: "Chinmay created a gem and is now selling it to the world for only $5. Check it out right now!",
 		purchasable : true,
 		soldout : false,
+		reviews = [
+			{
+				stars:5,
+				comment:'This product is very beautiful and durable.',
+				name:'Chinmay',
+			}
+
+		];
 	},
 
 	{

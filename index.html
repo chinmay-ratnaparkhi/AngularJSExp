@@ -29,6 +29,9 @@ Description...
 		padding: 15px;
 	
 	}
+	.jumbotron{
+		
+	}
 	
 </style>
 </head>
@@ -50,18 +53,44 @@ Description...
 		</div>
 		
 		<div class="row">
-			<div ng-repeat='product in it.products'>
+			<div ng-repeat='product in it.products | limitTo:3'>
 				<div class="col-lg-4" ng-hide='product.soldout'>
 					<div class="jumbotron">
 						<h2>{{product.name}}</h2>
-						<h4>Price : ${{product.price}}</h4>
+						<h4>Price : {{product.price | currency}}</h4>
 						<p class="lead">{{product.description}}</p >
-						<a class="btn btn-success" ng-show='product.purchasable'> Add to Cart</a>
+					<boot ng-show='product.purchasable'>
+						<a class="btn btn-success"> Add to Cart</a> </boot>
 					</div>
+					<hr>
+					<selection  ng-controller='PanelController as panel'>
+						<ul class="nav nav-pills">
+							<li ng-click="panel.setTab(1)" ng-class="{ active:panel.tab === 1}">
+								<a href>First</a>
+							</li>
+							<li ng-click="panel.setTab(2)" ng-class="{ active:panel.tab === 2}">
+								<a href>Second</a>
+							</li>
+							<li ng-click="panel.setTab(3)" ng-class="{ active:panel.tab === 3}">
+								<a href>Reviews</a>
+							</li>
+						</ul>
+						<hr>
+						<div class="panel" ng-show="panel.isSelected(1)">
+							<p class="lead">1. This is the first panel!</p>
+						</div>
+						<div class="panel" ng-show="panel.isSelected(2)">
+							<p class="lead">2. This is the second panel!</p>
+						</div>
+						
+						<div class="panel" ng-show="panel.isSelected(3)">
+							<h4>Reviews</h4>
+							<blockquote>This is where the review will go.</blockquote>
+						</div>
+					</selection>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 </body>
 </html>
