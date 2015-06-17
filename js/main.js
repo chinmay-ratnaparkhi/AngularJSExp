@@ -15,6 +15,14 @@
 		}
 	})
 
+	app.controller('reviewController',function(){
+
+		this.review={};
+		this.solidify= function(holder){
+			holder.reviews.push(this.review);
+			this.review={};
+		}
+	})
 	var myGems= [
 
 	{
@@ -24,14 +32,20 @@
 		description: "Chinmay created a gem and is now selling it to the world for only $5. Check it out right now!",
 		purchasable : true,
 		soldout : false,
-		reviews = [
+		reviews : [
 			{
 				stars:5,
-				comment:'This product is very beautiful and durable.',
+				comment:'This first product is very beautiful and durable.',
 				name:'Chinmay',
+			},
+			{
+				stars:2,
+				comment:'No complaints, but I was expecting a lot more. Irony. Lol.',
+				name:'IronicChinmay',
 			}
 
-		];
+
+		],
 	},
 
 	{
@@ -41,35 +55,23 @@
 		description: "Chinmay created another gem and is now selling it to the world for only $15. Check it out right now!",
 		purchasable : true,
 		soldout : false,
+		reviews : [
+			{
+				stars:5,
+				comment:'This first product is very beautiful and durable.',
+				name:'Chinmay',
+			},
+			{
+				stars:2,
+				comment:'No complaints, but I was expecting a lot more. Irony. Lol.',
+				name:'IronicChinmay',
+			}
+
+
+		],
 	},
 
-	{
 
-		name: "Chinmay's third Gem",
-		price: 25,
-		description: "Chinmay created another gem and is now selling it to the world for only $25. Check it out right now!",
-		purchasable : false,
-		soldout : false,
-	},
-
-	
-	{
-
-		name: "Chinmay's fourth Gem",
-		price: 35,
-		description: "Chinmay created another gem and is now selling it to the world for only $35. Check it out right now!",
-		purchasable : true,
-		soldout : false,
-	},
-
-	{
-
-		name: "Chinmay's fifth Gem",
-		price: 45,
-		description: "Chinmay created another gem and is now selling it to the world for only $45. Check it out right now!",
-		purchasable : true,
-		soldout : false,
-	},
 
 	];
 

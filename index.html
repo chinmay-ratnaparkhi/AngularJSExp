@@ -29,8 +29,11 @@ Description...
 		padding: 15px;
 	
 	}
-	.jumbotron{
-		
+	.ng-dirty.ng-valid{
+		border-color: #78FA89;
+	}
+	.ng-dirty.ng-invalid{
+		border-color: #FA787E;
 	}
 	
 </style>
@@ -85,7 +88,35 @@ Description...
 						
 						<div class="panel" ng-show="panel.isSelected(3)">
 							<h4>Reviews</h4>
-							<blockquote>This is where the review will go.</blockquote>
+							<blockquote ng-repeat='element in product.reviews'>
+								<strong>Stars: {{element.stars}}</strong>
+								<p>{{element.comment}}</p>
+								<cite>-{{element.name}}</cite>
+							</blockquote>
+							
+							<form name='reviewForm' ng-controller='reviewController as reviewCtrl' ng-submit='reviewForm.$valid && reviewCtrl.solidify(product)' novalidate>
+							<blockquote>
+								<strong>Stars: {{reviewCtrl.review.stars}}</strong>
+								<p>{{reviewCtrl.review.comment}}</p>
+								<cite>-{{reviewCtrl.review.name}}</cite>
+							</blockquote>
+								<select ng-model='reviewCtrl.review.stars' required>
+									<option></option>
+									<option value='1'>1 Star</option>
+									<option value='2'>2 Star</option>
+									<option value='3'>3 Star</option>
+									<option value='4'>4 Star</option>
+									<option value='5'>5 Star</option>
+								</select><br/>
+								<textarea ng-model='reviewCtrl.review.comment' required>
+								</textarea><br/>
+								<input type="email" id='eml' placeholder='example@example.com' width="40" ng-model='reviewCtrl.review.name' required></input><br/>
+								<input class="btn btn-large btn-default"type="submit"></input>
+							<div>
+								reviewForm is {{reviewForm.$valid}}
+							</div>
+							</form>
+							
 						</div>
 					</selection>
 				</div>
