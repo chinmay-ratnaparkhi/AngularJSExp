@@ -51,10 +51,6 @@
 		}
 }
 
-@media (max-width: 1150px) {
-	
-}
-
 .btn.btn-pink{
 	margin : 30px;
 	background-color:#B4045F;
@@ -75,10 +71,29 @@
 	border-color: #3ADF00;
 }
 
-.shopping-cart{
-	position: absolute;
-	right: 3%;
-	width: 150px;
-	position:fixed;
-    top:10%;
+@media screen and (max-width: 978px){
+	.shopping-cart{
+		padding:30px;
+		margin-left: 17%;
+		width: 70%;
+	}
+
+	.container{
+		padding:30px;
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 979px){
+	.shopping-cart{
+		position: absolute;
+		right: 3%;
+		width: 150px;
+		position:fixed;
+		top:18%;
+	}
+	.container{
+		padding-left: 160px;
+		padding-right: 160px;
+	}
 }
