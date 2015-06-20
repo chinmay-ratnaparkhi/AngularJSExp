@@ -1,17 +1,3 @@
-<!--
-		
-@created:           18/06/2015 - 12:43:44
-@today:             18/06/2015
-@project:           No Project
-@path:              /Users/chinmay/Documents/KU/GIT/AngularJSExp/index2.html
-			
-@author:            Chinmay Ratnaparkhi
-@company:           International Student Services, KU
-
-			
--->
-			
-			
 <!DOCTYPE html>
 <html ng-app='store'>
   <head>
@@ -22,163 +8,14 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/angular.min.js"></script>
 	<script src="js/gemStore.js"></script>
-	<style>
-		.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
-			background-color:#FE2E9A;
-			color:white;
-		}
-		
-		.head-space{
-			margin-top:50px;
-		}
-		.center {
-		
-			margin-left: auto;
-			margin-right: auto;
-			width: 70%;
-		}
-		
-		.enclosure{
-			position:center;
-			padding:10px;
-			border:solid;
-			border-width:1px;
-			border-color:#D8D8D8;
-			border-radius:10px;
-		}
-		
-		
-		@media screen and (max-width: 700px) {
-			.review-window{
-				
-					padding:30px;
-					width:90%
-				}
-		
-		}
-		
-		@media screen and (min-width: 700px) {
-			@media screen and (max-width: 1100px) {
-				.review-window{
-				
-					padding:30px;
-					width:50%
-				}
-			}
-		}
-		
-		@media screen and (min-width: 1100px){
-			.review-window{
-				
-					padding:30px;
-					width:400px;
-				}
-		}
-		
-		@media (max-width: 1150px) {
-			
-		}
-	</style>
+	<script src="js/product.js"></script>
+	<link rel="stylesheet" href="css/gemStore.css">
   </head>
-  <body ng-controller='storeController as store' >
-  <div class="container" style="padding:50px">
-	<ul>
-			<li class="list-group-item"  class="list-group" ng-controller='tabController as tab' ng-repeat="product in store.products">
-				<h3>
-					{{product.name}}
-					<em class="pull-right">{{product.price | currency }}</em>
-				</h3><br />
-				<img ng-src= "{{ product.images.full }}" height="100"/>&nbsp;
-				<img ng-src= "{{ product.images.thum }}" height="100"/>
-				<div class="enclosure">
-					<h5>
-						<ul class="nav nav-pills" >
-							<li ng-class="{ active : tab.isCurrent(1) }">
-								<a href ng-click='tab.makeMeActive(1)'>Description</a>
-							</li>
-							<li ng-class="{ active : tab.isCurrent(2) }">
-								<a href ng-click='tab.makeMeActive(2)'>Specifications</a>
-							</li>
-							<li ng-class="{ active : tab.isCurrent(3) }">
-								<a href ng-click='tab.makeMeActive(3)'>Review</a>
-							</li>
-						</ul>
-					</h5>
-					<div class="panel" ng-show='tab.isCurrent(1)'>
-						<h3>Description</h3>
-						<blockquote>{{product.description}}</blockquote>
-					</div>
-					<div class="panel" ng-show='tab.isCurrent(2)'>
-						<h3>Specifications</h3>
-						<blockquote>
-							{{product.specs}}
-						</blockquote>
-					</div>
-					<div class="panel" ng-show='tab.isCurrent(3)'>
-						<h3>Reviews</h3>
-						<span ng-repeat='review in product.reviews'>
-							<blockquote >
-								<h4>{{review.stars}} Stars</h4>
-								{{review.comment}}
-								<cite class="clearfix">-{{review.author}}</cite>
-							</blockquote>
-						</span>
-						
-							<!--- Review Form ---->
-								<div class="head-space review-window enclosure" >								
-									<form name="reviewForm" ng-controller= 'reviewController as reviewCtrl' ng-submit='reviewCtrl.formSubmission(product)' novalidate>
-										<!--  Live Preview -->
-										<blockquote ng-hide='!reviewCtrl.demo.comment.length'>
-											<strong>{{reviewCtrl.demo.stars}} Stars</strong><br/>
-											{{reviewCtrl.demo.comment}}
-											<cite class="clearfix">—{{reviewCtrl.demo.author}}</cite>
-										</blockquote>
-										<!--  Review Form -->
-										<h4>Submit a Review</h4>
-										<fieldset class="form-group">
-											<select class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars" ng-model="reviewCtrl.demo.stars">
-												<option value="">Rate the Product</option>
-											</select>
-										</fieldset>
-										<fieldset class="form-group">
-											<textarea class="form-control" placeholder="Write a short review of the product..." title="Review" ng-model="reviewCtrl.demo.comment"></textarea>
-										</fieldset> 
-										<fieldset class="form-group">
-											<input type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" ng-model="reviewCtrl.demo.author"/>
-										</fieldset>
-										<fieldset class="form-group">
-											<input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
-										</fieldset>
-									</form>
-								
-								
-								
-								
-								
-								  
-								  <!--
-								  <div class="form-group">
-									<label for="exampleInputPassword1">Password</label>
-									<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-								  </div>
-								  <div class="form-group">
-									<label for="exampleInputFile">File input</label>
-									<input type="file" id="exampleInputFile">
-									<p class="help-block">Example block-level help text here.</p>
-								  </div>
-								  <div class="checkbox">
-									<label>
-									  <input type="checkbox"> Check me out
-									</label>
-								  </div>
-								  --->
-								</div>
-							<!--- Review Form Ends ------>
-					</div >
-				</div>
-			</li>
-		
-	</ul>
+  <body ng-controller='StoreController as store' >
+	<h1 class="huge center">Flatlanders' GemStore</h1>
+	<h3 class="muted center">Diamonds are Forever!</h3>
+	<div class="container" style="padding:80px">
+		<ul><li class="list-group-item"  store-product class="list-group" ng-repeat="product in store.products"></li></ul>
 	</div>
   </body>
 </html>
