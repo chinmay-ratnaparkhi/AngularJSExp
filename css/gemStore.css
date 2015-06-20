@@ -74,3 +74,11 @@
 .ng-dirty.ng-valid{
 	border-color: #3ADF00;
 }
+
+.shopping-cart{
+	position: absolute;
+	right: 3%;
+	width: 150px;
+	position:fixed;
+    top:10%;
+}

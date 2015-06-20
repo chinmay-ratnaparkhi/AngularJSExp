@@ -20,15 +20,15 @@
 		<!--  Review Form -->
 		<h4>Submit a Review</h4>
 		<fieldset class="form-group">
-			<select class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars" ng-model="reviewCtrl.demo.stars" required>
+			<select id="userStars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars" ng-model="reviewCtrl.demo.stars" required>
 				<option value="">Rate the Product</option>
 			</select>
 		</fieldset>
 		<fieldset class="form-group">
-			<textarea class="form-control" placeholder="Write a short review of the product..." title="Review" ng-model="reviewCtrl.demo.comment"></textarea>
+			<textarea id="userComment" class="form-control" placeholder="Write a short review of the product..." title="Review" ng-model="reviewCtrl.demo.comment"></textarea>
 		</fieldset> 
 		<fieldset class="form-group">
-			<input type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" ng-model="reviewCtrl.demo.author" required />
+			<input id="userEmail" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" ng-model="reviewCtrl.demo.author" required />
 		</fieldset>
 		<fieldset class="form-group">
 			<input type="submit" class="btn btn-primary pull-right" value="Submit Review" />

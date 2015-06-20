@@ -9,11 +9,13 @@
 	<script src="js/angular.min.js"></script>
 	<script src="js/gemStore.js"></script>
 	<script src="js/product.js"></script>
+	<script src="js/purchased.js"></script>
 	<link rel="stylesheet" href="css/gemStore.css">
   </head>
   <body ng-controller='StoreController as store' >
 	<h1 class="huge center">Flatlanders' GemStore</h1>
 	<h3 class="muted center">Diamonds are Forever!</h3>
+	<shopping-cart></shopping-cart>
 	<div class="container" style="padding:80px">
 		<ul><li class="list-group-item"  store-product class="list-group" ng-repeat="product in store.products"></li></ul>
 	</div>
